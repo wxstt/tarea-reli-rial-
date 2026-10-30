@@ -1,0 +1,1788 @@
+/* ==========================================================================
+   DECOR.CSS — CAPA DECORATIVA MAXIMALISTA EDITORIAL
+   Proyecto: «¿Qué aprendí y qué cambió en mi manera de pensar?» — Fe y Razón
+   Estética: Archivo académico / Fanzine erudito / Revista de pensamiento dura
+   Esta hoja sólo añade decoración sobre style.css; no altera la estructura.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   D-0. SOBREESCRITURA DE VARIABLES — PALETA EDITORIAL ENRIQUECIDA
+   -------------------------------------------------------------------------- */
+:root {
+  /* Paleta redefinida: papiro oscuro, tinta, lacre, pátina dorada, marfil */
+  --bg-canvas:       #f2ede3;          /* Papel de archivo envejecido */
+  --bg-surface:      #faf7f0;          /* Pergamino suave */
+  --bg-surface-alt:  #e8e0ce;          /* Cartulina kraft claro */
+  --bg-inverse:      #0d0d0b;          /* Tinta china negra */
+  --bg-accent-soft:  #ede6d3;
+  --bg-callout:      #f7f2e6;
+
+  --text-main:       #1a1611;          /* Sepia profundo */
+  --text-muted:      #6b6050;
+  --text-inverse:    #f5f0e4;
+  --text-accent:     #0f3e2e;
+
+  --accent-primary:   #0e3b2a;         /* Verde musgo oscuro */
+  --accent-secondary: #8c2015;         /* Lacre / bermellón académico */
+  --accent-tertiary:  #163354;         /* Azul marino de archivo */
+  --accent-highlight: #c9973e;         /* Oro antiguo / pátina */
+  --accent-gold:      #b8860b;         /* Dorado heráldico */
+  --accent-cream:     #f5f0dc;
+
+  /* Bordes reforzados para estética de lámina impresa */
+  --border-strong:  2px solid #1a1611;
+  --border-medium:  1.5px solid #2a2318;
+  --border-double:  5px double #1a1611;
+  --border-subtle:  1px solid #c2b89c;
+  --border-gold:    1.5px solid #c9973e;
+  --border-dashed:  1.5px dashed #8a7d68;
+
+  /* Sombras brutalistas más pronunciadas */
+  --shadow-flat:        5px 5px 0px #1a1611;
+  --shadow-flat-subtle: 3px 3px 0px #1a1611;
+  --shadow-flat-large:  8px 8px 0px #1a1611;
+  --shadow-active:      1px 1px 0px #1a1611;
+  --shadow-gold:        4px 4px 0px #b8860b;
+  --shadow-inset:       inset 2px 2px 0px rgba(0,0,0,0.08);
+}
+
+/* --------------------------------------------------------------------------
+   D-1. TEXTURA GLOBAL — PATRÓN LÍNEAS DE CUADERNO ACADÉMICO
+   -------------------------------------------------------------------------- */
+body.maximalist-base {
+  background-color: var(--bg-canvas);
+  /* Líneas horizontales muy sutiles como papel de registro */
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 28px,
+      rgba(180, 165, 130, 0.18) 28px,
+      rgba(180, 165, 130, 0.18) 29px
+    );
+}
+
+/* --------------------------------------------------------------------------
+   D-2. BARRA DE PROGRESO — GRADIENTE DORADO
+   -------------------------------------------------------------------------- */
+.reading-progress-bar {
+  background: linear-gradient(90deg, var(--accent-secondary) 0%, var(--accent-gold) 60%, var(--accent-highlight) 100%);
+  height: 5px;
+}
+
+/* --------------------------------------------------------------------------
+   D-3. TICKER RIBBON — ESTILO CINTA DE TELÉGRAFO / PÉRIODICO CLÁSICO
+   -------------------------------------------------------------------------- */
+.ticker-ribbon {
+  background-color: var(--accent-secondary);
+  border-top: 3px solid var(--accent-gold);
+  border-bottom: 3px solid var(--accent-gold);
+  color: #fdf5e4;
+  letter-spacing: 0.12em;
+  font-size: 0.74rem;
+  padding: 8px 0;
+}
+
+.ticker-bullet {
+  color: var(--accent-gold);
+  font-size: 0.9em;
+  text-shadow: 0 0 6px rgba(201, 151, 62, 0.7);
+}
+
+.ticker-item {
+  opacity: 0.95;
+  font-weight: 700;
+}
+
+/* --------------------------------------------------------------------------
+   D-4. MASTHEAD — CABECERA DE GACETA HISTÓRICA CON FILETE ORNAMENTAL
+   -------------------------------------------------------------------------- */
+.masthead {
+  background-color: var(--bg-surface);
+  border-bottom: var(--border-double);
+  /* Franjas decorativas laterales de la gaceta */
+  background-image:
+    linear-gradient(90deg, var(--accent-primary) 0px, var(--accent-primary) 6px, transparent 6px),
+    linear-gradient(270deg, var(--accent-secondary) 0px, var(--accent-secondary) 6px, transparent 6px);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Ornamento tipográfico de fondo en el masthead */
+.masthead::before {
+  content: "✦";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 28rem;
+  color: rgba(0,0,0,0.025);
+  pointer-events: none;
+  line-height: 1;
+  z-index: 0;
+  font-family: serif;
+  user-select: none;
+}
+
+.masthead-grid {
+  position: relative;
+  z-index: 1;
+}
+
+/* Línea decorativa triple bajo el tagline */
+.masthead-tagline {
+  color: var(--accent-secondary);
+  letter-spacing: 0.3em;
+  font-size: 0.75rem;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 6px;
+}
+
+.masthead-tagline::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 3px;
+  background:
+    linear-gradient(90deg,
+      var(--accent-secondary) 0%, var(--accent-secondary) 33%,
+      var(--accent-gold) 33%, var(--accent-gold) 66%,
+      var(--accent-primary) 66%, var(--accent-primary) 100%
+    );
+  margin-top: 4px;
+}
+
+/* Título principal: serif grande con contorno de tinta sutil */
+.page-title {
+  font-family: var(--font-editorial);
+  color: var(--text-main);
+  text-shadow: 2px 2px 0 rgba(26, 22, 17, 0.07);
+  letter-spacing: -0.03em;
+}
+
+.title-eyebrow {
+  color: var(--accent-gold);
+  letter-spacing: 0.2em;
+  font-size: 0.78rem;
+  font-family: var(--font-mono);
+}
+
+.masthead-subtitle {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* Sellos de metadatos con aspecto de tampón */
+.meta-stamp {
+  background-color: var(--accent-primary);
+  color: #e8dfc8;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 2px 2px 0 rgba(0,0,0,0.3);
+}
+
+.meta-label {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  border-bottom: 1px dotted var(--border-subtle);
+  padding-bottom: 3px;
+}
+
+/* Status box: estilo terminal verde oscuro */
+.status-box {
+  background-color: #0d1f18;
+  color: #4ade80;
+  border: 1px solid #1a3d28;
+  font-size: 0.66rem;
+  box-shadow: 2px 2px 0 #000;
+}
+
+.status-text {
+  color: #4ade80;
+}
+
+.status-indicator {
+  box-shadow: 0 0 8px rgba(74, 222, 128, 0.9);
+  background-color: #4ade80;
+}
+
+/* Botones de herramienta estilo máquina de escribir */
+.tool-btn {
+  background-color: var(--bg-canvas);
+  border: 2px solid #1a1611;
+  box-shadow: 3px 3px 0px #1a1611;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-main);
+  transition: transform 0.08s, box-shadow 0.08s, background-color 0.08s;
+}
+
+.tool-btn:hover {
+  background-color: var(--accent-primary);
+  color: #e8dfc8;
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0px #0a1a12;
+}
+
+/* --------------------------------------------------------------------------
+   D-5. NAVEGACIÓN STICKY — BARRA DE ARCHIVO / ÍNDICE DE DOSSIER
+   -------------------------------------------------------------------------- */
+.sticky-nav {
+  background-color: var(--bg-canvas);
+  border-bottom: 3px solid var(--text-main);
+  box-shadow: 0 4px 0 var(--accent-gold);
+}
+
+.nav-brand {
+  font-family: var(--font-display);
+  letter-spacing: 0.12em;
+  font-size: 0.88rem;
+  color: var(--accent-primary);
+  text-transform: uppercase;
+}
+
+.nav-icon {
+  color: var(--accent-secondary);
+  font-size: 1.2rem;
+}
+
+.nav-link {
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  border: 1px solid transparent;
+  color: var(--text-main);
+  border-radius: 0;
+  padding: 5px 9px;
+  transition: all 0.12s;
+  position: relative;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  background-color: var(--bg-surface-alt);
+  border-color: var(--text-main);
+  box-shadow: 2px 2px 0 var(--text-main);
+  transform: translate(-1px, -1px);
+}
+
+.nav-link.highlight-pill {
+  background-color: var(--accent-primary);
+  color: #e8dfc8;
+  border-color: var(--accent-primary);
+  box-shadow: 2px 2px 0 #061109;
+}
+
+.nav-link.highlight-pill-alt {
+  background-color: var(--accent-secondary);
+  color: #fdf5e4;
+  border-color: var(--accent-secondary);
+  box-shadow: 2px 2px 0 #4a0f08;
+}
+
+.nav-link.highlight-pill:hover {
+  background-color: #0a2b1e;
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 #000;
+}
+
+.nav-link.highlight-pill-alt:hover {
+  background-color: #6a1710;
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 #000;
+}
+
+.filter-select {
+  border: 2px solid var(--text-main);
+  box-shadow: 2px 2px 0 var(--text-main);
+  background-color: var(--bg-canvas);
+  font-size: 0.7rem;
+  color: var(--text-main);
+}
+
+/* --------------------------------------------------------------------------
+   D-6. BANNERS IDENTIFICADORES DE SECCIÓN — SELLOS TIPOGRÁFICOS
+   -------------------------------------------------------------------------- */
+.section-label-banner {
+  border-bottom: 3px solid var(--text-main);
+  padding-bottom: 10px;
+  margin-bottom: var(--spacing-xl);
+  position: relative;
+}
+
+/* Línea dorada secundaria bajo el borde negro */
+.section-label-banner::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 1.5px;
+  background: linear-gradient(90deg, var(--accent-gold), transparent 70%);
+}
+
+.section-num {
+  background-color: var(--text-main);
+  color: #e8dfc8;
+  padding: 4px 10px;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  box-shadow: 2px 2px 0 rgba(0,0,0,0.4);
+}
+
+.section-category {
+  color: var(--accent-secondary);
+  font-size: 0.73rem;
+  letter-spacing: 0.1em;
+}
+
+.section-code {
+  color: var(--text-muted);
+  font-size: 0.68rem;
+  font-style: italic;
+}
+
+/* --------------------------------------------------------------------------
+   D-7. SECCIÓN 01: MANIFIESTO — DECORACIÓN EDITORIAL PRINCIPAL
+   -------------------------------------------------------------------------- */
+.manifesto-section {
+  background-color: var(--bg-surface);
+  /* Textura de fondo tipo papel de registro con margen de cuaderno */
+  background-image:
+    linear-gradient(90deg, #c9973e22 0px, #c9973e22 4px, transparent 4px);
+}
+
+.manifesto-card.primary-card {
+  background-color: var(--bg-callout);
+  border: 2px solid var(--text-main);
+  box-shadow: var(--shadow-flat-large);
+  position: relative;
+}
+
+/* Esquina decorativa estilo registro de archivo */
+.manifesto-card.primary-card::before {
+  content: "I";
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  background-color: var(--accent-secondary);
+  color: #fdf5e4;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 900;
+  padding: 2px 7px;
+  letter-spacing: 0.1em;
+}
+
+.card-chip {
+  background-color: var(--accent-secondary);
+  color: #fdf5e4;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  box-shadow: 2px 2px 0 rgba(0,0,0,0.25);
+}
+
+.card-chip.chip-outline {
+  background: transparent;
+  color: var(--accent-primary);
+  border: 2px solid var(--accent-primary);
+  box-shadow: 2px 2px 0 var(--accent-primary);
+}
+
+.manifesto-heading {
+  font-family: var(--font-editorial);
+  font-size: clamp(1.6rem, 2.3vw, 2.1rem);
+  line-height: 1.18;
+  color: var(--text-main);
+  font-weight: 400;
+  font-style: italic;
+}
+
+.manifesto-lead {
+  border-left: 3px solid var(--accent-gold);
+  padding-left: var(--spacing-md);
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--text-muted);
+}
+
+/* Cita con borde izquierdo lacre y fondo pergamino */
+.quote-callout {
+  background-color: var(--accent-cream);
+  border-left: 5px solid var(--accent-secondary);
+  border-top: 1px solid var(--border-subtle);
+  border-right: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  box-shadow: 3px 3px 0 rgba(140, 32, 21, 0.2);
+  position: relative;
+}
+
+/* Marca de comillas grandes decorativa */
+.quote-callout::before {
+  content: "\201C";
+  position: absolute;
+  top: -18px;
+  left: 10px;
+  font-size: 4rem;
+  color: var(--accent-secondary);
+  opacity: 0.25;
+  font-family: Georgia, serif;
+  line-height: 1;
+}
+
+.quote-text {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  font-size: 1.28rem;
+  color: var(--text-main);
+  line-height: 1.4;
+}
+
+.quote-source {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--accent-secondary);
+  font-style: normal;
+}
+
+.dossier-box {
+  border: 2px solid var(--text-main);
+  box-shadow: var(--shadow-flat);
+  background-color: var(--bg-surface);
+}
+
+.box-title {
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  font-weight: 800;
+  line-height: 1.35;
+  color: var(--text-main);
+  border-bottom: 1px dotted var(--border-subtle);
+  padding-bottom: var(--spacing-xs);
+  margin-bottom: var(--spacing-xs);
+}
+
+.data-stamp-box {
+  background-color: var(--bg-surface-alt);
+  border: var(--border-dashed);
+  position: relative;
+}
+
+/* Sello de "CONFIDENCIAL" / número de expediente decorativo */
+.data-stamp-box::before {
+  content: "EXPEDIENTE Nº REL-02";
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: rgba(0,0,0,0.2);
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  transform: rotate(2deg);
+}
+
+.meta-key {
+  color: var(--accent-secondary);
+  font-weight: 900;
+  font-size: 0.67rem;
+}
+
+/* --------------------------------------------------------------------------
+   D-8. SECCIÓN DEFINICIONES — COLUMNAS CON CABECERA PINTADA
+   -------------------------------------------------------------------------- */
+.definitions-section {
+  background-color: var(--bg-canvas);
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(180,165,130,0.2) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+.def-column {
+  border: 2px solid var(--text-main);
+  box-shadow: var(--shadow-flat);
+}
+
+.column-fe .def-header {
+  background: linear-gradient(135deg, #0e3b2a 0%, #1a5c40 100%);
+  border-top: 6px solid var(--accent-gold);
+  border-bottom: 2px solid var(--text-main);
+}
+
+.column-fe .def-header .icon-tag,
+.column-fe .def-header .def-title,
+.column-fe .def-header .def-badge {
+  color: #d4f0e4;
+}
+
+.column-fe .def-header .def-title {
+  color: #e8f8f0;
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.3);
+}
+
+.column-razon .def-header {
+  background: linear-gradient(135deg, #8c2015 0%, #b33a28 100%);
+  border-top: 6px solid var(--accent-gold);
+  border-bottom: 2px solid var(--text-main);
+}
+
+.column-razon .def-header .icon-tag,
+.column-razon .def-header .def-title,
+.column-razon .def-header .def-badge {
+  color: #fde8e4;
+}
+
+.column-razon .def-header .def-title {
+  color: #fff0ee;
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.3);
+}
+
+.def-title {
+  font-family: var(--font-editorial);
+  font-style: italic;
+}
+
+.def-badge {
+  background-color: rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.8);
+  padding: 3px 8px;
+  font-size: 0.68rem;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.highlight-p {
+  border-left: 4px solid var(--accent-gold);
+  padding-left: var(--spacing-sm);
+  font-size: 1rem;
+  line-height: 1.65;
+  background-color: rgba(201, 151, 62, 0.06);
+  padding: 8px var(--spacing-sm);
+}
+
+.item-bullet {
+  background-color: var(--text-main);
+  color: #e8dfc8;
+  font-size: 0.7rem;
+  font-weight: 900;
+  padding: 3px 7px;
+  box-shadow: 1px 1px 0 rgba(0,0,0,0.3);
+}
+
+.def-footer {
+  background-color: var(--bg-surface-alt);
+  border-top: 2px solid var(--text-main);
+  font-size: 0.67rem;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   D-9. TRÍADA DEL CONOCIMIENTO — TARJETAS CON COLOR TEMÁTICO
+   -------------------------------------------------------------------------- */
+.triad-section {
+  background-color: var(--bg-surface);
+  background-image:
+    linear-gradient(rgba(201,151,62,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,151,62,0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.triad-card {
+  border: 2px solid var(--text-main);
+  box-shadow: var(--shadow-flat);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.triad-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: var(--shadow-flat-large);
+}
+
+/* Card: Ciencia — azul marino */
+.science-card {
+  background: linear-gradient(180deg, #f0f4f9 0%, var(--bg-callout) 100%);
+  border-top: 5px solid var(--accent-tertiary);
+}
+
+.science-card .card-top-index { background-color: var(--accent-tertiary); }
+.science-card .triad-question-tag { color: var(--accent-tertiary); }
+.science-card .triad-pill {
+  border-color: var(--accent-tertiary);
+  color: var(--accent-tertiary);
+  background-color: rgba(22, 51, 84, 0.06);
+}
+
+/* Card: Filosofía — dorado terroso */
+.philosophy-card {
+  background: linear-gradient(180deg, #faf6ec 0%, var(--bg-callout) 100%);
+  border-top: 5px solid var(--accent-gold);
+}
+
+.philosophy-card .card-top-index { background-color: var(--accent-gold); color: var(--text-main); }
+.philosophy-card .triad-question-tag { color: var(--accent-gold); }
+.philosophy-card .triad-pill {
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
+  background-color: rgba(184,134,11,0.06);
+}
+
+/* Card: Religión — verde oscuro */
+.religion-card {
+  background: linear-gradient(180deg, #eef4f0 0%, var(--bg-callout) 100%);
+  border-top: 5px solid var(--accent-primary);
+}
+
+.religion-card .card-top-index { background-color: var(--accent-primary); }
+.religion-card .triad-question-tag { color: var(--accent-primary); }
+.religion-card .triad-pill {
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+  background-color: rgba(14, 59, 42, 0.06);
+}
+
+.triad-title {
+  font-family: var(--font-editorial);
+  font-style: italic;
+}
+
+.triad-list li::before {
+  content: "—";
+  color: var(--accent-gold);
+  margin-right: 5px;
+  font-weight: 900;
+}
+
+/* Matriz comparativa */
+.matrix-wrapper {
+  border: 2px solid var(--text-main);
+  box-shadow: var(--shadow-flat);
+  background-color: var(--bg-surface);
+}
+
+.data-matrix thead th {
+  background: linear-gradient(135deg, var(--accent-primary) 0%, #1a5c40 100%);
+  color: #e0f0e8;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  border-bottom: 2px solid var(--text-main);
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.3);
+}
+
+.data-matrix tbody tr:nth-child(even) td,
+.data-matrix tbody tr:nth-child(even) th {
+  background-color: rgba(201, 151, 62, 0.06);
+}
+
+.data-matrix tbody tr:hover td,
+.data-matrix tbody tr:hover th {
+  background-color: rgba(201, 151, 62, 0.14);
+}
+
+.data-matrix tbody th {
+  background-color: var(--bg-surface-alt);
+  color: var(--accent-primary);
+  font-size: 0.72rem;
+  border-right: 2px solid var(--text-main);
+}
+
+/* --------------------------------------------------------------------------
+   D-10. CONFLICTO Y EXTREMOS — TARJETAS DE DIAGNÓSTICO
+   -------------------------------------------------------------------------- */
+.conflict-section {
+  background-color: var(--bg-canvas);
+  position: relative;
+}
+
+/* Marca diagonal de fondo decorativa */
+.conflict-section::before {
+  content: "≠";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-15deg);
+  font-size: 26rem;
+  color: rgba(0,0,0,0.025);
+  pointer-events: none;
+  font-family: Georgia, serif;
+  user-select: none;
+  line-height: 1;
+  z-index: 0;
+}
+
+.conflict-section > .container { position: relative; z-index: 1; }
+
+.conflict-manifesto-box {
+  border: 2px solid var(--text-main);
+  box-shadow: var(--shadow-flat-large);
+  background-color: var(--bg-surface);
+}
+
+.verdict-tag {
+  background-color: var(--accent-primary);
+  color: #d4eae0;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  box-shadow: 2px 2px 0 #000;
+}
+
+.verdict-title {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  line-height: 1.25;
+}
+
+.extreme-card {
+  border: 2px solid var(--text-main);
+  box-shadow: var(--shadow-flat-subtle);
+}
+
+.extreme-card.extreme-left {
+  border-top: 5px solid var(--accent-secondary);
+}
+
+.extreme-card.extreme-right {
+  border-top: 5px solid var(--accent-tertiary);
+}
+
+.danger-badge {
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  box-shadow: 2px 2px 0 rgba(0,0,0,0.3);
+}
+
+.extreme-left .danger-badge { background-color: var(--accent-secondary); color: #fdf5e4; }
+.extreme-right .danger-badge { background-color: var(--accent-tertiary); color: #dce8f4; }
+
+.extreme-header h3 {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  font-size: 1.5rem;
+}
+
+.extreme-example {
+  background-color: var(--bg-callout);
+  border-left: 3px solid var(--accent-gold);
+  font-size: 0.84rem;
+  line-height: 1.55;
+}
+
+.correction-note {
+  color: var(--accent-primary);
+  font-weight: 700;
+  font-size: 0.78rem;
+}
+
+.correction-note .note-bullet { color: var(--accent-gold); margin-right: 4px; }
+
+.harmony-bridge {
+  border: 2px solid var(--accent-gold);
+  background: linear-gradient(135deg, #faf5e8 0%, #f5edcf 100%);
+  box-shadow: var(--shadow-gold);
+}
+
+.bridge-indicator {
+  color: var(--accent-gold);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  font-weight: 900;
+}
+
+.bridge-content {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--text-main);
+}
+
+/* --------------------------------------------------------------------------
+   D-11. SECCIÓN APORTES MUTUOS — COLUMNAS ENFRENTADAS
+   -------------------------------------------------------------------------- */
+.exchange-section {
+  background-color: var(--bg-surface);
+  background-image:
+    linear-gradient(90deg, var(--accent-primary) 0px, var(--accent-primary) 3px, transparent 3px),
+    linear-gradient(270deg, var(--accent-secondary) 0px, var(--accent-secondary) 3px, transparent 3px);
+}
+
+.exchange-column {
+  border: 2px solid var(--text-main);
+  box-shadow: var(--shadow-flat);
+}
+
+.col-razon-to-fe .col-title-bar {
+  background: linear-gradient(135deg, var(--accent-tertiary) 0%, #1f4a7a 100%);
+  border-bottom: 2px solid var(--text-main);
+}
+
+.col-razon-to-fe .col-title-bar .direction-badge {
+  background-color: rgba(255,255,255,0.15);
+  color: #c8dff7;
+  font-size: 0.67rem;
+}
+
+.col-razon-to-fe .col-title-bar h3 {
+  color: #e0ecfa;
+  font-family: var(--font-editorial);
+  font-style: italic;
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.3);
+}
+
+.col-fe-to-razon .col-title-bar {
+  background: linear-gradient(135deg, var(--accent-primary) 0%, #1a5c40 100%);
+  border-bottom: 2px solid var(--text-main);
+}
+
+.col-fe-to-razon .col-title-bar .direction-badge {
+  background-color: rgba(255,255,255,0.15);
+  color: #b0e8cb;
+  font-size: 0.67rem;
+}
+
+.col-fe-to-razon .col-title-bar h3 {
+  color: #d4f0e4;
+  font-family: var(--font-editorial);
+  font-style: italic;
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.3);
+}
+
+.dense-item {
+  border: 1px solid var(--border-subtle);
+  background-color: var(--bg-surface);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.dense-item:hover {
+  border-color: var(--text-main);
+  box-shadow: 2px 2px 0 var(--text-main);
+}
+
+.dense-item.highlight-box-accent {
+  border: 2px solid var(--accent-secondary);
+  border-left: 6px solid var(--accent-secondary);
+  background-color: rgba(140, 32, 21, 0.03);
+}
+
+.dense-item.highlight-box-accent-alt {
+  border: 2px solid var(--accent-primary);
+  border-left: 6px solid var(--accent-primary);
+  background-color: rgba(14, 59, 42, 0.03);
+}
+
+.dense-text h4 {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+/* --------------------------------------------------------------------------
+   D-12. GALERÍA HISTÓRICA — FICHAS DE ARCHIVO / EXPEDIENTE
+   -------------------------------------------------------------------------- */
+.history-section {
+  background-color: var(--bg-canvas);
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 20px,
+    rgba(201,151,62,0.04) 20px,
+    rgba(201,151,62,0.04) 21px
+  );
+}
+
+.history-intro {
+  border-left: 5px solid var(--accent-gold);
+  padding-left: var(--spacing-md);
+  color: var(--text-main);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.dossier-card {
+  border: 2px solid var(--text-main);
+  box-shadow: var(--shadow-flat);
+  background-color: var(--bg-surface);
+  position: relative;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.dossier-card::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: -5px;
+  bottom: -5px;
+  border: 1px solid rgba(0,0,0,0.12);
+  z-index: -1;
+}
+
+.dossier-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: var(--shadow-flat-large);
+}
+
+.dossier-card.highlight-card {
+  background: linear-gradient(160deg, #f5f0e0 0%, #faf7ed 100%);
+  border: 2px solid var(--text-main);
+  border-top: 5px solid var(--accent-gold);
+}
+
+.dossier-card-header {
+  border-bottom: 1.5px dashed var(--border-subtle);
+}
+
+.era-tag {
+  font-size: 0.66rem;
+  color: var(--text-muted);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.role-tag {
+  font-size: 0.66rem;
+  color: var(--accent-secondary);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.figure-name {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  color: var(--text-main);
+  font-size: 1.9rem;
+  line-height: 1.1;
+}
+
+.figure-hook {
+  color: var(--accent-primary);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.figure-bio {
+  font-size: 0.87rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+}
+
+.figure-badge {
+  background-color: var(--bg-surface-alt);
+  border-top: 2px solid var(--text-main);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--accent-primary);
+  padding: 7px 10px;
+}
+
+/* Número de ficha decorativo en esquina */
+.dossier-card:nth-child(1)::before { content: "I"; }
+.dossier-card:nth-child(2)::before { content: "II"; }
+.dossier-card:nth-child(3)::before { content: "III"; }
+.dossier-card:nth-child(4)::before { content: "IV"; }
+.dossier-card:nth-child(5)::before { content: "V"; }
+
+.dossier-card::before {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: rgba(0,0,0,0.06);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* --------------------------------------------------------------------------
+   D-13. SECCIÓN CONTEMPORÁNEA (IA & MEDICINA)
+   -------------------------------------------------------------------------- */
+.contemporary-section {
+  background-color: var(--bg-surface);
+  background-image:
+    linear-gradient(rgba(22,51,84,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(22,51,84,0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.contemporary-layout {
+  border: 2px solid var(--text-main);
+  box-shadow: var(--shadow-flat-large);
+  background-color: var(--bg-callout);
+}
+
+.badge-scenario {
+  background-color: var(--accent-tertiary);
+  color: #d0e4f6;
+  font-size: 0.67rem;
+  letter-spacing: 0.15em;
+  box-shadow: 2px 2px 0 rgba(0,0,0,0.3);
+}
+
+.contemporary-header-block h2 {
+  font-family: var(--font-editorial);
+  font-style: italic;
+}
+
+.column-reason-tech {
+  border: 2px solid var(--text-main);
+  border-top: 5px solid var(--accent-tertiary);
+  background-color: var(--bg-surface);
+}
+
+.column-faith-ethics {
+  border: 2px solid var(--text-main);
+  border-top: 5px solid var(--accent-primary);
+  background-color: var(--bg-surface);
+}
+
+.column-reason-tech h3 {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  color: var(--accent-tertiary);
+}
+
+.column-faith-ethics h3 {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  color: var(--accent-primary);
+}
+
+.col-indicator {
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  font-weight: 900;
+}
+
+.column-reason-tech .col-indicator { color: var(--accent-tertiary); }
+.column-faith-ethics .col-indicator { color: var(--accent-primary); }
+
+.check-list li::before {
+  content: "→";
+  color: var(--accent-gold);
+  font-weight: 900;
+}
+
+.pillar-summary {
+  background-color: var(--bg-surface-alt);
+  border-top: 2px solid var(--text-main);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: var(--text-main);
+  padding: 9px 12px;
+}
+
+/* --------------------------------------------------------------------------
+   D-14. MI PENSAMIENTO — TARJETAS DE ENTREVISTA
+   -------------------------------------------------------------------------- */
+.personal-section {
+  background-color: var(--bg-canvas);
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 30px,
+      rgba(180, 165, 130, 0.22) 30px,
+      rgba(180, 165, 130, 0.22) 31px
+    ),
+    linear-gradient(90deg, rgba(201,151,62,0.12) 0px, rgba(201,151,62,0.12) 2px, transparent 2px);
+  background-position: 0 0, 60px 0;
+}
+
+.personal-main-title {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  color: var(--text-main);
+}
+
+.qa-item-card {
+  border: 2px solid var(--text-main);
+  box-shadow: var(--shadow-flat);
+  background-color: var(--bg-surface);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.qa-item-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: var(--shadow-flat-large);
+}
+
+.qa-item-card.highlight-card {
+  background: linear-gradient(160deg, #f4f0e0 0%, #faf7ed 100%);
+  border: 2px solid var(--text-main);
+  border-left: 6px solid var(--accent-gold);
+}
+
+.qa-number-stamp {
+  background: linear-gradient(180deg, #0d0d0b 0%, #2a2318 100%);
+  color: #c9973e;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  letter-spacing: 0.05em;
+  border-right: 2px solid var(--text-main);
+}
+
+.qa-label {
+  color: var(--accent-secondary);
+  font-size: 0.67rem;
+  letter-spacing: 0.15em;
+  font-weight: 900;
+}
+
+.qa-question {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--text-main);
+  border-bottom: 1.5px dashed var(--border-subtle);
+}
+
+.qa-answer-box {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  font-size: 1.1rem;
+  line-height: 1.65;
+  color: var(--text-main);
+  background-color: rgba(245, 240, 220, 0.5);
+  border-left: 3px solid var(--accent-primary);
+  padding: var(--spacing-sm) var(--spacing-md);
+}
+
+.qa-answer-box strong {
+  font-style: normal;
+  font-weight: 800;
+  color: var(--accent-primary);
+}
+
+/* --------------------------------------------------------------------------
+   D-15. SECCIÓN CLIMAX — EL GRAN CIERRE EDITORIAL
+   -------------------------------------------------------------------------- */
+.climax-section {
+  background-color: var(--bg-surface);
+  background-image:
+    linear-gradient(90deg, var(--accent-primary) 0px, var(--accent-primary) 8px, transparent 8px),
+    linear-gradient(270deg, var(--accent-secondary) 0px, var(--accent-secondary) 8px, transparent 8px);
+}
+
+.climax-container {
+  border: 3px solid var(--text-main);
+  box-shadow: 10px 10px 0px var(--text-main);
+  background: linear-gradient(160deg, #f8f4e8 0%, #f2ece0 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Ornamento de fondo en el bloque climax */
+.climax-container::before {
+  content: "★";
+  position: absolute;
+  bottom: -40px;
+  right: -30px;
+  font-size: 22rem;
+  color: rgba(201, 151, 62, 0.07);
+  pointer-events: none;
+  line-height: 1;
+  font-family: Georgia, serif;
+  user-select: none;
+}
+
+.climax-kicker {
+  color: var(--accent-secondary);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  font-weight: 900;
+}
+
+.climax-title {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  color: var(--text-main);
+  text-shadow: 2px 2px 0 rgba(26, 22, 17, 0.08);
+}
+
+.climax-header {
+  border-bottom: 3px double var(--text-main);
+  padding-bottom: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+}
+
+.climax-subtitle {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+.panel-num {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 900;
+  color: var(--accent-gold);
+  letter-spacing: 0.15em;
+  border-bottom: 1px dotted var(--accent-gold);
+  padding-bottom: 4px;
+}
+
+.panel-highlight-full {
+  background: linear-gradient(160deg, var(--bg-surface) 0%, var(--accent-cream) 100%);
+  border: 2px solid var(--text-main);
+  border-left: 6px solid var(--accent-gold);
+  box-shadow: var(--shadow-gold);
+}
+
+.climax-quote-lead {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  font-size: 1.28rem;
+  line-height: 1.55;
+  color: var(--text-main);
+}
+
+.climax-callout {
+  border: 2px solid var(--accent-gold);
+  background: linear-gradient(135deg, #fdf9ee 0%, #f8f0d8 100%);
+  box-shadow: var(--shadow-gold);
+}
+
+.callout-star {
+  color: var(--accent-gold);
+  text-shadow: 0 0 10px rgba(184,134,11,0.4);
+}
+
+.climax-callout p {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  font-size: 1.28rem;
+  color: var(--text-main);
+}
+
+/* --------------------------------------------------------------------------
+   D-16. REFERENCIAS APA — FONDO DE FICHERO BIBLIOGRÁFICO
+   -------------------------------------------------------------------------- */
+.references-section {
+  background-color: var(--bg-canvas);
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 24px,
+      rgba(180,165,130,0.25) 24px,
+      rgba(180,165,130,0.25) 25px
+    );
+}
+
+.ref-container {
+  border: 2px solid var(--text-main);
+  box-shadow: var(--shadow-flat-large);
+  background-color: var(--bg-surface);
+  position: relative;
+}
+
+/* Pestaña decorativa de fichero */
+.ref-container::before {
+  content: "BIBLIOGRAFÍA APA 7";
+  position: absolute;
+  top: -28px;
+  left: 20px;
+  background-color: var(--accent-tertiary);
+  color: #c8dff7;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  padding: 4px 14px;
+  box-shadow: 2px 0 0 var(--text-main), -2px 0 0 var(--text-main), 0 -2px 0 var(--text-main);
+  z-index: 1;
+}
+
+.ref-intro {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  border-bottom: 2px solid var(--text-main);
+  padding-bottom: 10px;
+}
+
+.ref-entry {
+  border-left: 4px solid var(--accent-tertiary);
+  background-color: var(--bg-callout);
+  border-top: 1px solid var(--border-subtle);
+  border-right: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: var(--spacing-sm) var(--spacing-md);
+  transition: border-left-color 0.15s, background-color 0.15s;
+}
+
+.ref-entry:hover {
+  border-left-color: var(--accent-gold);
+  background-color: rgba(201, 151, 62, 0.06);
+}
+
+.ref-author {
+  font-weight: 900;
+  color: var(--text-main);
+}
+
+.ref-title {
+  font-style: italic;
+  color: var(--accent-tertiary);
+}
+
+.ref-meta {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  font-style: italic;
+  border-top: 1px dotted var(--border-subtle);
+  margin-top: 4px;
+  padding-top: 3px;
+}
+
+/* --------------------------------------------------------------------------
+   D-17. PIE DE PÁGINA / COLOFÓN
+   -------------------------------------------------------------------------- */
+.colophon-footer {
+  background: linear-gradient(180deg, #0d0d0b 0%, #1a1611 100%);
+  color: var(--text-inverse);
+  border-top: 5px double #c9973e;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Marca de agua ornamental en el pie */
+.colophon-footer::before {
+  content: "⚖";
+  position: absolute;
+  bottom: -30px;
+  right: 40px;
+  font-size: 20rem;
+  color: rgba(255,255,255,0.025);
+  pointer-events: none;
+  font-family: serif;
+  user-select: none;
+  line-height: 1;
+}
+
+.footer-stamp {
+  color: var(--accent-gold);
+  font-size: 0.67rem;
+  letter-spacing: 0.18em;
+  border-bottom: 1px solid rgba(201,151,62,0.3);
+  padding-bottom: 4px;
+}
+
+.footer-title {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  color: var(--text-inverse);
+  font-size: 1.5rem;
+}
+
+.footer-quote {
+  border-left: 3px solid var(--accent-gold);
+  color: #e8d9a8;
+  font-family: var(--font-editorial);
+  font-style: italic;
+  font-size: 1.1rem;
+}
+
+.meta-bullets {
+  color: #b5aa95;
+  font-size: 0.73rem;
+}
+
+.meta-bullets li {
+  border-bottom: 1px dotted rgba(255,255,255,0.08);
+  padding-bottom: 3px;
+  margin-bottom: 3px;
+}
+
+.meta-bullets strong { color: #e0d8c4; }
+
+.back-to-top-btn {
+  color: var(--accent-gold);
+  border: 1.5px solid var(--accent-gold);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  padding: 7px 14px;
+  transition: all 0.15s;
+}
+
+.back-to-top-btn:hover {
+  background-color: var(--accent-gold);
+  color: #0d0d0b;
+}
+
+.footer-bottom-bar {
+  border-top: 1px solid rgba(201,151,62,0.2);
+  background-color: rgba(0,0,0,0.2);
+  font-size: 0.66rem;
+  color: #7a7060;
+}
+
+/* --------------------------------------------------------------------------
+   D-18. ORNAMENTOS DECORATIVOS FLOTANTES (PSEUDO-ELEMENTOS GLOBALES)
+   -------------------------------------------------------------------------- */
+
+/* Línea divisoria ornamental entre secciones */
+.section-block + .section-block::before {
+  content: "";
+  display: block;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--accent-secondary) 0%,
+    var(--accent-gold) 33%,
+    var(--accent-primary) 66%,
+    transparent 100%
+  );
+  margin-bottom: 0;
+}
+
+/* Márgenes de bloque de texto con línea de encuadernación */
+.section-block {
+  position: relative;
+}
+
+/* --------------------------------------------------------------------------
+   D-19. MICROINTERACCIONES Y ESTADOS DE ENFOQUE (ACCESIBILIDAD DECORATIVA)
+   -------------------------------------------------------------------------- */
+a:focus-visible,
+button:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--accent-gold);
+  outline-offset: 3px;
+}
+
+/* Sección activa vía anchor: flash de fondo sutil */
+:target {
+  animation: targetFlash 0.5s ease-out;
+}
+
+@keyframes targetFlash {
+  0%   { background-color: rgba(201, 151, 62, 0.15); }
+  100% { background-color: transparent; }
+}
+
+/* --------------------------------------------------------------------------
+   D-20. TIPOGRAFÍA DECORATIVA DE APOYO GLOBAL
+   -------------------------------------------------------------------------- */
+
+/* Texto en strong con mayor peso y color acento */
+.section-block p strong {
+  font-weight: 800;
+  color: var(--accent-primary);
+}
+
+/* em en cursiva con color terracota */
+.section-block p em,
+.ref-title {
+  color: var(--accent-secondary);
+  font-style: italic;
+}
+
+/* Citas en blockquote general */
+blockquote {
+  border-left: 4px solid var(--accent-gold);
+  padding-left: var(--spacing-md);
+  font-family: var(--font-editorial);
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+/* Scrollbar global estilizada */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-surface-alt); }
+::-webkit-scrollbar-thumb {
+  background: var(--accent-gold);
+  border: 2px solid var(--bg-surface-alt);
+}
+::-webkit-scrollbar-thumb:hover { background: var(--accent-secondary); }
+
+/* --------------------------------------------------------------------------
+   D-21. SELECCIÓN DE TEXTO PERSONALIZADA
+   -------------------------------------------------------------------------- */
+::selection {
+  background-color: rgba(201, 151, 62, 0.35);
+  color: var(--text-main);
+}
+
+/* --------------------------------------------------------------------------
+   D-22. IMPRESIÓN (CONSERVA LA ESTÉTICA EDITORIAL)
+   -------------------------------------------------------------------------- */
+@media print {
+  .ticker-ribbon,
+  .sticky-nav,
+  .reading-progress-track,
+  .tool-btn,
+  .nav-filters {
+    display: none !important;
+  }
+
+  body.maximalist-base {
+    background-image: none;
+    background-color: #fff;
+    font-size: 11pt;
+  }
+
+  .section-block {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .dossier-card,
+  .triad-card,
+  .qa-item-card {
+    box-shadow: none;
+    border: 1px solid #333;
+    page-break-inside: avoid;
+  }
+
+  .masthead {
+    background-image: none;
+    border-bottom: 2pt double #000;
+  }
+
+  .page-title {
+    font-size: 22pt;
+  }
+
+  .colophon-footer {
+    background: #111;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   D-23. RESPONSIVE DECORATIVO COMPLEMENTARIO
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .masthead {
+    background-image:
+      linear-gradient(90deg, var(--accent-primary) 0px, var(--accent-primary) 4px, transparent 4px);
+  }
+  .exchange-section {
+    background-image:
+      linear-gradient(90deg, var(--accent-primary) 0px, var(--accent-primary) 3px, transparent 3px);
+  }
+}
+
+@media (max-width: 640px) {
+  .conflict-section::before {
+    font-size: 14rem;
+  }
+  .climax-container::before {
+    font-size: 12rem;
+  }
+  .colophon-footer::before {
+    font-size: 10rem;
+  }
+  .masthead::before {
+    font-size: 16rem;
+  }
+  .qa-number-stamp {
+    border-right: none;
+    border-bottom: 2px solid var(--text-main);
+  }
+}
+
+
+/* ==========================================================================
+   D-24. SOBREESCRITURA TIPOGRÁFICA — FUENTES ELEGANTES
+   Cormorant Garamond (editorial / display) · Jost (sans) · DM Mono (código)
+   ========================================================================== */
+:root {
+  /* Fuentes redefinidas: elegancia clásica académica */
+  --font-editorial: "Cormorant Garamond", "Garamond", Georgia, serif;
+  --font-sans:      "Jost", system-ui, -apple-system, sans-serif;
+  --font-mono:      "DM Mono", "SF Mono", Consolas, monospace;
+  --font-display:   "Cormorant", "Cormorant Garamond", Georgia, serif;
+
+  /* Ajuste de espaciado de letras para Cormorant (serif clásico, pide menos kerning forzado) */
+  --tracking-display: -0.01em;
+  --tracking-body:     0.015em;
+  --tracking-mono:     0.04em;
+}
+
+/* Cuerpo base: Jost a 400 es limpia y moderna pero no genérica */
+body.maximalist-base {
+  font-family: var(--font-sans);
+  letter-spacing: var(--tracking-body);
+  font-weight: 400;
+  line-height: 1.65;
+}
+
+/* Todos los titulares editoriales: Cormorant Garamond, peso 600, kerning propio */
+h1, h2, h3 {
+  font-family: var(--font-editorial);
+  font-weight: 600;
+  letter-spacing: var(--tracking-display);
+}
+
+/* Títulos de display de gran tamaño: variante Cormorant 700 italic */
+.page-title,
+.manifesto-heading,
+.verdict-title,
+.climax-title,
+.def-title,
+.triad-title,
+.figure-name,
+.personal-main-title {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* Subtítulos y cuerpo editorial (italics): Cormorant Garamond light italic */
+.masthead-subtitle,
+.manifesto-lead,
+.quote-text,
+.qa-answer-box,
+.bridge-content,
+.climax-quote-lead,
+.climax-callout p,
+.footer-quote,
+.history-intro,
+.lead-paragraph,
+.lead-context {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  font-weight: 300;
+  letter-spacing: 0.01em;
+  line-height: 1.75;
+}
+
+/* Fuente sin serifa para UI de datos, chips, badges: Jost medium */
+.card-chip,
+.meta-stamp,
+.meta-label,
+.section-num,
+.section-category,
+.section-code,
+.ticker-item,
+.nav-link,
+.nav-brand-title,
+.tool-btn,
+.verdict-tag,
+.direction-badge,
+.era-tag,
+.role-tag,
+.figure-hook,
+.figure-badge,
+.qa-label,
+.panel-num,
+.status-text,
+.badge-scenario,
+.triad-question-tag,
+.col-indicator,
+.pillar-summary,
+.triad-pill,
+.footer-stamp,
+.ref-meta,
+.ref-intro,
+.matrix-title,
+.back-to-top-btn,
+.masthead-tagline,
+.title-eyebrow {
+  font-family: var(--font-mono);
+  letter-spacing: var(--tracking-mono);
+}
+
+/* Monoespaciado refinado para datos técnicos: DM Mono */
+.data-stamp-box,
+.meta-row,
+.meta-key,
+.meta-val,
+.filter-select,
+.bottom-flex,
+.meta-bullets {
+  font-family: var(--font-mono);
+  letter-spacing: 0.03em;
+}
+
+/* Ajuste de tamaño para que Cormorant Garamond luzca a escala correcta
+   (es una fuente de cuerpo grande, los tamaños pequeños requieren ajuste) */
+.quote-text          { font-size: 1.45rem; line-height: 1.4; }
+.manifesto-heading   { font-size: clamp(1.85rem, 2.6vw, 2.4rem); }
+.page-title          { font-size: clamp(2.2rem, 4.2vw, 3.8rem); }
+.climax-title        { font-size: clamp(2.4rem, 4vw, 3.6rem); }
+.figure-name         { font-size: 2.1rem; }
+.def-title           { font-size: 2.2rem; }
+.triad-title         { font-size: 1.85rem; }
+.personal-main-title { font-size: clamp(2.1rem, 3.2vw, 2.8rem); }
+.manifesto-lead      { font-size: 1.12rem; }
+.qa-answer-box       { font-size: 1.18rem; }
+.climax-quote-lead   { font-size: 1.4rem; }
+.climax-callout p    { font-size: 1.35rem; }
+.bridge-content      { font-size: 1.3rem; }
+.footer-title        { font-size: 1.65rem; }
+
+/* La nav brand usa Cormorant display en versalitas */
+.nav-brand-title {
+  font-family: var(--font-display);
+  font-style: normal;
+  font-weight: 700;
+  font-variant: small-caps;
+  letter-spacing: 0.12em;
+  font-size: 1.05rem;
+}
+
+/* Citas de pie (footer) */
+.footer-quote {
+  font-size: 1.15rem;
+  line-height: 1.5;
+  font-weight: 300;
+}
+
+/* Textos de cuerpo largo de secciones: Jost regular más generoso */
+.box-body,
+.figure-bio,
+.extreme-desc,
+.lead-paragraph,
+.lead-context,
+.history-intro,
+.verdict-text,
+.manifesto-lead,
+.personal-lead-text {
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.97rem;
+  line-height: 1.72;
+  letter-spacing: 0.01em;
+}
+
+/* Breakdowns y listas de puntos: Jost 400 */
+.breakdown-item p,
+.triad-list li,
+.check-list li,
+.dense-text p,
+.extreme-desc,
+.box-body {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 0.88rem;
+  line-height: 1.65;
+}
+
+/* Ítem de preguntas Q&A: sans limpia para el enunciado */
+.qa-question {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 1.02rem;
+  letter-spacing: -0.01em;
+}
+
+/* Responsive tipográfico complementario */
+@media (max-width: 640px) {
+  .page-title    { font-size: 2rem; }
+  .climax-title  { font-size: 1.85rem; }
+  .figure-name   { font-size: 1.65rem; }
+  .def-title     { font-size: 1.7rem; }
+}

@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sitio web informativo y reflexivo sobre el proyecto: Fe y razón: ¿enemigas o compañeras? Base estructural maximalista con todos los temas, investigaciones y pensamiento crítico.">
+  <title>¿Qué aprendí y qué cambió en mi manera de pensar? — Fe y Razón</title>
+  
+  <!-- Tipografías elegantes: Cormorant Garamond (display/editorial) + Jost (sans limpia) + DM Mono (código) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Cormorant:ital,wght@0,700;1,700&family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="decor.css">
+</head>
+<body class="maximalist-base" data-theme="editorial">
+
+  <!-- Barra de progreso de lectura superior -->
+  <div class="reading-progress-track" aria-hidden="true">
+    <div class="reading-progress-bar" id="progressBar"></div>
+  </div>
+
+  <!-- Cinta ticker / Marquee superior maximalista -->
+  <aside class="ticker-ribbon" role="region" aria-label="Lema del proyecto">
+    <div class="ticker-content">
+      <span class="ticker-item"><span class="ticker-bullet">✦</span> TRABAJO EXTRACLASE: «CREENCIAS QUE TRANSFORMAN: FE, RAZÓN, DIGNIDAD Y CULTURA»</span>
+      <span class="ticker-item"><span class="ticker-bullet">✦</span> LEMA: «COMPRENDER LO QUE CREEMOS, RESPETAR LO QUE OTROS CREEN Y CONSTRUIR JUNTOS UN MUNDO MEJOR»</span>
+      <span class="ticker-item"><span class="ticker-bullet">✦</span> TEMA 2: FE Y RAZÓN: ¿ENEMIGAS O COMPAÑERAS?</span>
+      <span class="ticker-item"><span class="ticker-bullet">✦</span> RELIGIÓN</span>
+      <span class="ticker-item"><span class="ticker-bullet">✦</span> CITAS NORMATIVAS: APA 7.ª EDICIÓN</span>
+      <!-- Duplicado para ciclo continuo -->
+      <span class="ticker-item"><span class="ticker-bullet">✦</span> TRABAJO EXTRACLASE: «CREENCIAS QUE TRANSFORMAN: FE, RAZÓN, DIGNIDAD Y CULTURA»</span>
+      <span class="ticker-item"><span class="ticker-bullet">✦</span> LEMA: «COMPRENDER LO QUE CREEMOS, RESPETAR LO QUE OTROS CREEN Y CONSTRUIR JUNTOS UN MUNDO MEJOR»</span>
+      <span class="ticker-item"><span class="ticker-bullet">✦</span> TEMA 2: FE Y RAZÓN: ¿ENEMIGAS O COMPAÑERAS?</span>
+    </div>
+  </aside>
+
+  <!-- Encabezado de archivo / Masthead estilo gaceta editorial -->
+  <header class="masthead">
+    <div class="container masthead-grid">
+      <div class="masthead-meta-col">
+        <span class="meta-label">CLASE: RELIGIÓN</span>
+        <span class="meta-label" style="margin-top:6px;">Juan Pablo Sierra Darien</span>
+        <span class="meta-label">Anpherny E. Solano Weatte</span>
+        <span class="meta-label">SECCIÓN: 11-D</span>
+      </div>
+      <div class="masthead-center-col">
+        <p class="masthead-tagline">DOSSIER DE INVESTIGACIÓN Y REFLEXIÓN CRÍTICA</p>
+        <h1 class="page-title">
+          <span class="title-eyebrow">UNA PÁGINA TITULADA:</span>
+          «¿Qué aprendí y qué cambió en mi manera de pensar?»
+        </h1>
+        <p class="masthead-subtitle">
+          Exploración sobre la relación entre el pensamiento científico, la búsqueda filosófica y la trascendencia espiritual.
+        </p>
+      </div>
+      <div class="masthead-index-col">
+      </div>
+    </div>
+  </header>
+
+  <!-- Barra de navegación y filtro por secciones -->
+  <nav class="sticky-nav" id="stickyNav" aria-label="Navegación principal de temas">
+    <div class="container nav-container">
+      <div class="nav-brand">
+        <span class="nav-icon">⚖</span>
+        <span class="nav-brand-title">FE &amp; RAZÓN</span>
+      </div>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#pregunta-central" class="nav-link">Pregunta Central</a></li>
+        <li><a href="#fe-vs-razon" class="nav-link">Fe &amp; Razón</a></li>
+        <li><a href="#tres-saberes" class="nav-link">3 Conocimientos</a></li>
+        <li><a href="#conflicto-o-armonia" class="nav-link">¿Conflicto Real?</a></li>
+        <li><a href="#aportes-mutuos" class="nav-link">Aportes Cruzados</a></li>
+        <li><a href="#galeria-historica" class="nav-link">Casos Históricos</a></li>
+        <li><a href="#ia-y-medicina" class="nav-link">IA &amp; Bioética</a></li>
+        <li><a href="#mi-pensamiento" class="nav-link highlight-pill">Mi Pensamiento</a></li>
+        <li><a href="#transformacion-final" class="nav-link highlight-pill-alt">¿Qué Cambió?</a></li>
+        <li><a href="#referencias" class="nav-link">Fuentes APA</a></li>
+      </ul>
+      <div class="nav-filters">
+        <label for="sectionFilter" class="visually-hidden">Filtrar vista:</label>
+        <select id="sectionFilter" class="filter-select">
+          <option value="all">Ver: Todos los módulos</option>
+          <option value="research">Ver: Investigación teórica</option>
+          <option value="history">Ver: Galería de científicos</option>
+          <option value="personal">Ver: Mi pensamiento &amp; cambio</option>
+        </select>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Envoltorio Principal de Contenido -->
+  <main class="main-wrapper" id="mainContent">
+
+    <!-- SECCIÓN 00: BLOQUE MANIFIESTO / PREGUNTAS RECTORAS -->
+    <section id="pregunta-central" class="section-block manifesto-section" data-category="research">
+      <div class="container">
+        <div class="section-label-banner">
+          <span class="section-num">[01 // MARCO]</span>
+          <span class="section-category">PROPÓSITO &amp; PREGUNTAS GENERADORAS</span>
+          <span class="section-code">REF: PROY-FE-RAZON-01</span>
+        </div>
+
+        <div class="manifesto-grid">
+          <div class="manifesto-card primary-card">
+            <span class="card-chip">PREGUNTA CENTRAL DEL TRABAJO</span>
+            <h2 class="manifesto-heading">
+              ¿Cómo influye esta manera de comprender al ser humano en la forma en que vivimos y transformamos nuestra sociedad?
+            </h2>
+            <p class="manifesto-lead">
+              El ser humano no está partido a la mitad. Posee inteligencia empírica para investigar las leyes mecánicas del cosmos y, simultáneamente, anhelo espiritual para responder por qué existe la belleza, la justicia, el sufrimiento y la vocación de fraternidad.
+            </p>
+            <div class="quote-callout">
+              <p class="quote-text">
+                «La fe y la razón son como las dos alas con las cuales el espíritu humano se eleva hacia la contemplación de la verdad.»
+              </p>
+              <cite class="quote-source">— San Juan Pablo II (1998), Carta Encíclica <em>Fides et Ratio</em></cite>
+            </div>
+          </div>
+
+          <div class="manifesto-aside-stack">
+            <div class="dossier-box">
+              <span class="card-chip chip-outline">PREGUNTA GENERADORA</span>
+              <h3 class="box-title">¿Puede una persona utilizar simultáneamente la razón y la fe para buscar respuestas sobre la vida?</h3>
+              <p class="box-body">
+                <strong>Respuesta demostrada:</strong> Sí. Lejos de excluirse, ambas facultades se necesitan recíprocamente: la razón previene que la fe se degenere en superstición ciega o violencia fanática, mientras que la fe otorga una brújula ética para que la ciencia no se convierta en una herramienta destructiva.
+              </p>
+            </div>
+
+            <div class="data-stamp-box">
+              <div class="meta-row"><span class="meta-key">PROPÓSITO:</span> <span class="meta-val">Investigar la relación entre fe, razón, dignidad humana, bioética, ciencia y paz frente a los desafíos de la sociedad actual.</span></div>
+              <div class="meta-row"><span class="meta-key">LEMA RECTOR:</span> <span class="meta-val">«Comprender lo que creemos, respetar lo que otros creen y construir juntos un mundo mejor.»</span></div>
+              <div class="meta-row"><span class="meta-key">EQUIPO:</span> <span class="meta-val">[Nombre del Estudiante 1] &amp; [Nombre del Estudiante 2]</span></div>
+              <div class="meta-row"><span class="meta-key">INSTITUCIÓN:</span> <span class="meta-val">[Nombre del Colegio o Liceo] — Sección [Sección]</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 01: FE Y RAZÓN (DEFINICIONES OPERATIVAS Y CONCEPTUALES) -->
+    <section id="fe-vs-razon" class="section-block definitions-section" data-category="research">
+      <div class="container">
+        <div class="section-label-banner">
+          <span class="section-num">[02 // FUNDAMENTOS]</span>
+          <span class="section-category">CLARIDAD CONCEPTUAL: ¿DE QUÉ HABLAMOS?</span>
+          <span class="section-code">PÁGINA 3 DEL DOCUMENTO</span>
+        </div>
+
+        <div class="split-definition-grid">
+          <!-- Columna Fe -->
+          <article class="def-column column-fe">
+            <div class="def-header">
+              <div class="icon-tag">✦ CONFIDENCIA &amp; TRASCENDENCIA</div>
+              <h2 class="def-title">¿Qué entendemos por Fe?</h2>
+              <span class="def-badge">Dimensión existencial, espiritual y moral</span>
+            </div>
+            <div class="def-body">
+              <p class="highlight-p">
+                <strong>Tener fe no significa apagar el cerebro</strong> ni aceptar fantasías mágicas sin razonar.
+              </p>
+              <div class="content-breakdown">
+                <div class="breakdown-item">
+                  <span class="item-bullet">01</span>
+                  <div>
+                    <h4>En la vida cotidiana:</h4>
+                    <p>La fe opera constantemente como confianza racional y humana: cuando creemos en el amor de nuestra familia o en la lealtad de un amigo íntimo, confiamos plenamente a pesar de que esos lazos no se puedan encerrar en una probeta o medir con una báscula de laboratorio.</p>
+                  </div>
+                </div>
+                <div class="breakdown-item">
+                  <span class="item-bullet">02</span>
+                  <div>
+                    <h4>En el plano religioso y trascendente:</h4>
+                    <p>Es la certeza sincera en Dios y en que la existencia humana posee un propósito y un destino que trasciende la materia tangible.</p>
+                  </div>
+                </div>
+                <div class="breakdown-item">
+                  <span class="item-bullet">03</span>
+                  <div>
+                    <h4>En el orden de los valores humanos:</h4>
+                    <p>Es el compromiso vivo con el amor incondicional al prójimo, el perdón auténtico, la reconciliación, la justicia social y la esperanza inquebrantable de que siempre podemos transformar nuestra realidad.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="def-footer">
+              <span class="footer-tag">ÁMBITO: SENTIDO ÚLTIMO &amp; DIGNIDAD</span>
+            </div>
+          </article>
+
+          <!-- Columna Razón -->
+          <article class="def-column column-razon">
+            <div class="def-header">
+              <div class="icon-tag">⚙ LÓGICA &amp; COMPROBACIÓN</div>
+              <h2 class="def-title">¿Qué entendemos por Razón?</h2>
+              <span class="def-badge">Facultad analítica, empírica y crítica</span>
+            </div>
+            <div class="def-body">
+              <p class="highlight-p">
+                <strong>La razón es la capacidad cognitiva</strong> que nos permite examinar la realidad objetiva, formular hipótesis, deducir consecuencias y dudar ante lo dudoso.
+              </p>
+              <div class="content-breakdown">
+                <div class="breakdown-item">
+                  <span class="item-bullet">A</span>
+                  <div>
+                    <h4>Operatividad cotidiana e intelectual:</h4>
+                    <p>Usamos la razón al resolver un problema matemático, al estructurar argumentos escolares, al tomar decisiones vitales basadas en evidencia y al someter a escrutinio crítico las noticias de redes sociales para desenmascarar desinformaciones o falsedades.</p>
+                  </div>
+                </div>
+                <div class="breakdown-item">
+                  <span class="item-bullet">B</span>
+                  <div>
+                    <h4>El método según Mario Bunge (2000):</h4>
+                    <p>La razón nos faculta para ordenar nuestras ideas con coherencia lógica, depurar contradicciones internas y validar las hipótesis contrastándolas con datos comprobables de la experiencia fáctica.</p>
+                  </div>
+                </div>
+                <div class="breakdown-item">
+                  <span class="item-bullet">C</span>
+                  <div>
+                    <h4>Defensa civilizatoria contra el engaño:</h4>
+                    <p>Gracias a la razón comprendemos los ciclos de la naturaleza física, superamos mitos oscurantistas y evitamos ser presas fáciles de la manipulación o del fraude ideológico.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="def-footer">
+              <span class="footer-tag">ÁMBITO: FUNCIONAMIENTO &amp; VERIFICABILIDAD</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 02: LA TRÍADA DEL CONOCIMIENTO -->
+    <section id="tres-saberes" class="section-block triad-section" data-category="research">
+      <div class="container">
+        <div class="section-label-banner">
+          <span class="section-num">[03 // EPISTEMOLOGÍA]</span>
+          <span class="section-category">DIFERENCIAS ENTRE CONOCIMIENTO CIENTÍFICO, FILOSÓFICO Y RELIGIOSO</span>
+          <span class="section-code">PÁGINA 4 DEL DOCUMENTO</span>
+        </div>
+
+        <div class="section-intro-text">
+          <p class="lead-paragraph">
+            Muchos de los conflictos históricos y cotidianos entre las personas surgen por un error de categoría: confundir los campos de validez e intentar forzar a una disciplina a responder lo que le corresponde a otra. Cada forma de saber responde a una dimensión legítima de la realidad.
+          </p>
+        </div>
+
+        <div class="triad-cards-grid">
+          <!-- Card 1: Científico -->
+          <div class="triad-card science-card">
+            <div class="card-top-index">SABER 01</div>
+            <h3 class="triad-title">Conocimiento Científico</h3>
+            <div class="triad-question-tag">¿CÓMO FUNCIONA EL MUNDO FÍSICO?</div>
+            <ul class="triad-list">
+              <li><strong>Método:</strong> Observación rigurosa, formulación de hipótesis, experimentación replicable en laboratorio y medición matemática exacta (Bunge, 2000).</li>
+              <li><strong>Objeto de estudio:</strong> Fenómenos físicos, químicos, biológicos y astronómicos del universo material.</li>
+              <li><strong>Ejemplo concreto:</strong> Descifrar la respuesta inmunológica de una vacuna en el organismo o predecir el origen tectónico de los terremotos.</li>
+              <li><strong>Límite:</strong> No puede dictar juicios morales sobre si un arma bélica debe fabricarse o qué sentido tiene el sufrimiento humano.</li>
+            </ul>
+            <div class="triad-pill">Criterio: Verificación Empírica</div>
+          </div>
+
+          <!-- Card 2: Filosófico -->
+          <div class="triad-card philosophy-card">
+            <div class="card-top-index">SABER 02</div>
+            <h3 class="triad-title">Conocimiento Filosófico</h3>
+            <div class="triad-question-tag">¿QUÉ ES LO JUSTO, LO BUENO Y LO VERDADERO?</div>
+            <ul class="triad-list">
+              <li><strong>Método:</strong> Razonamiento dialéctico, análisis conceptual, argumentación crítica y problematización de los supuestos fundamentales.</li>
+              <li><strong>Objeto de estudio:</strong> La ética, la justicia distributiva, la libertad humana, la naturaleza del bien y el mal, y los fundamentos de las leyes sociales.</li>
+              <li><strong>Ejemplo concreto:</strong> Debatir cuándo una ley es justa o si el progreso tecnológico debe subordinarse a la dignidad de los trabajadores.</li>
+              <li><strong>Límite:</strong> No realiza experimentos empíricos con microscopios, sino que depura el sentido y la validez lógica de nuestros conceptos.</li>
+            </ul>
+            <div class="triad-pill">Criterio: Coherencia y Reflexión Ética</div>
+          </div>
+
+          <!-- Card 3: Religioso -->
+          <div class="triad-card religion-card">
+            <div class="card-top-index">SABER 03</div>
+            <h3 class="triad-title">Conocimiento Religioso</h3>
+            <div class="triad-question-tag">¿PARA QUÉ EXISTIMOS Y HACIA DÓNDE VAMOS?</div>
+            <ul class="triad-list">
+              <li><strong>Método:</strong> La fe, la contemplación, la interpretación hermenéutica de textos sagrados y la experiencia vivencial de comunión espiritual con Dios (Juan Pablo II, 1998).</li>
+              <li><strong>Objeto de estudio:</strong> El origen último del cosmos como creación, la salvación, el sentido de la vida, y la vocación moral al amor fraterno.</li>
+              <li><strong>Ejemplo concreto:</strong> Encontrar consuelo y esperanza ante la muerte de un ser querido o asumir el compromiso de servir a los más pobres.</li>
+              <li><strong>Límite:</strong> La Biblia y los libros sagrados no son enciclopedias de física ni geología; no reemplazan los cálculos de la astrofísica.</li>
+            </ul>
+            <div class="triad-pill">Criterio: Trascendencia &amp; Revelación</div>
+          </div>
+        </div>
+
+        <!-- Matriz comparativa sintética -->
+        <div class="matrix-wrapper">
+          <h4 class="matrix-title">Cuadro Comparativo de los Tres Saberes</h4>
+          <div class="table-responsive">
+            <table class="data-matrix">
+              <thead>
+                <tr>
+                  <th scope="col">Dimensión</th>
+                  <th scope="col">Conocimiento Científico</th>
+                  <th scope="col">Conocimiento Filosófico</th>
+                  <th scope="col">Conocimiento Religioso</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Pregunta rectora</th>
+                  <td>«¿Cómo suceden las cosas?»</td>
+                  <td>«¿Qué sentido y valor tienen?»</td>
+                  <td>«¿Para qué y hacia dónde existimos?»</td>
+                </tr>
+                <tr>
+                  <th scope="row">Instrumento principal</th>
+                  <td>Método empírico, laboratorio, datos</td>
+                  <td>Lógica deductiva, diálogo reflexivo</td>
+                  <td>Fe, textos sagrados, oración, amor</td>
+                </tr>
+                <tr>
+                  <th scope="row">Propósito primordial</th>
+                  <td>Explicar, controlar y predecir la materia</td>
+                  <td>Fundamentar la justicia, el bien y el saber</td>
+                  <td>Otorgar sentido trascendente y salvación</td>
+                </tr>
+                <tr>
+                  <th scope="row">Riesgo si se absolutiza</th>
+                  <td>Cientificismo deshumanizado y tecnocracia</td>
+                  <td>Intelectualismo abstracto desconectado</td>
+                  <td>Fanatismo dogmático, literalismo y cerrazón</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 03: ¿EXISTE NECESARIAMENTE CONFLICTO? -->
+    <section id="conflicto-o-armonia" class="section-block conflict-section" data-category="research">
+      <div class="container">
+        <div class="section-label-banner">
+          <span class="section-num">[04 // DIALÉCTICA]</span>
+          <span class="section-category">ANÁLISIS DEL CONFLICTO: LOS DOS EXTREMOS NOCIVOS</span>
+          <span class="section-code">PÁGINAS 4-5 DEL DOCUMENTO</span>
+        </div>
+
+        <div class="conflict-manifesto-box">
+          <div class="verdict-banner">
+            <span class="verdict-tag">CONCLUSIÓN CENTRAL</span>
+            <h2 class="verdict-title">No existe un conflicto intrínseco o necesario entre ciencia y religión</h2>
+            <p class="verdict-text">
+              Ambas disciplinas pueden coexistir en profunda complementariedad cuando se respeta la autonomía y la competencia propia de cada una. El choque surge únicamente cuando los seres humanos caen en dos reduccionismos extremos:
+            </p>
+          </div>
+
+          <div class="extremes-grid">
+            <!-- Extremo 1: Fanatismo -->
+            <div class="extreme-card extreme-left">
+              <div class="extreme-header">
+                <span class="danger-badge">EXTREMO A // ERROR FIDEÍSTA</span>
+                <h3>El Fanatismo Religioso</h3>
+              </div>
+              <p class="extreme-desc">
+                Ocurre cuando personas o comunidades pretenden anular los descubrimientos contrastados de las ciencias naturales leyendo los textos sagrados como si fueran manuales modernos de biología, cosmología o geología.
+              </p>
+              <div class="extreme-example">
+                <strong>Manifestación:</strong> Negar la edad geológica del planeta Tierra, rechazar las vacunas médicas con argumentos supersticiosos o calificar de herética cualquier formulación matemática rigurosa (Artigas, 2007).
+              </div>
+              <div class="correction-note">
+                <span class="note-bullet">✔</span> Antídoto: Comprender el género literario, teológico y ético de las escrituras sin forzarlas al método experimental.
+              </div>
+            </div>
+
+            <!-- Extremo 2: Cientificismo -->
+            <div class="extreme-card extreme-right">
+              <div class="extreme-header">
+                <span class="danger-badge">EXTREMO B // ERROR POSITIVISTA</span>
+                <h3>El Cientificismo Radical</h3>
+              </div>
+              <p class="extreme-desc">
+                Ocurre cuando se afirma dogmáticamente que la única verdad válida es aquella que puede cuantificarse en un laboratorio o medirse en números, descalificando como ilusión inútil el amor, la moral, el arte, la belleza y la trascendencia espiritual.
+              </p>
+              <div class="extreme-example">
+                <strong>Manifestación:</strong> Tratar al ser humano como un mero engranaje biológico o máquina económica sin alma, ignorando la dignidad inviolable de la vida (Collins, 2007; Artigas, 2007).
+              </div>
+              <div class="correction-note">
+                <span class="note-bullet">✔</span> Antídoto: Reconocer que la ciencia describe la mecánica de las cosas, pero carece de instrumental para juzgar su bondad intrínseca.
+              </div>
+            </div>
+          </div>
+
+          <!-- Puente de armonía -->
+          <div class="harmony-bridge">
+            <div class="bridge-indicator">PUENTE DE INTEGRACIÓN // ARTIGAS &amp; COLLINS</div>
+            <p class="bridge-content">
+              «Evitando el fanatismo que ciega y el cientificismo que reduce, la ciencia responde cómo acontecen los procesos naturales, mientras la fe nos revela para qué vivir, cómo amar al prójimo y hacia dónde orientar con responsabilidad el poder tecnológico de la humanidad.»
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 04: APORTES CRUZADOS -->
+    <section id="aportes-mutuos" class="section-block exchange-section" data-category="research">
+      <div class="container">
+        <div class="section-label-banner">
+          <span class="section-num">[05 // RECIPROCIDAD]</span>
+          <span class="section-category">LOS DONES MUTUOS: ¿QUÉ LE DA LA RAZÓN A LA FE Y LA FE A LA RAZÓN?</span>
+          <span class="section-code">PÁGINA 5 DEL DOCUMENTO</span>
+        </div>
+
+        <div class="exchange-grid">
+          <!-- Columna: Lo que la razón da a la fe y a la vida -->
+          <div class="exchange-column col-razon-to-fe">
+            <div class="col-title-bar">
+              <span class="direction-badge">LÓGICA → TRASCENDENCIA</span>
+              <h3>Aportes Invaluables de la Razón</h3>
+            </div>
+            <div class="card-stack">
+              <div class="dense-item">
+                <div class="dense-icon">🩺</div>
+                <div class="dense-text">
+                  <h4>Salud, Medicina y Supervivencia Humana</h4>
+                  <p>Gracias al desarrollo de la razón científica hoy contamos con antibióticos, anestesia, cirugías cardiovasculares, agua potable en las ciudades y vacunas que han erradicado epidemias mortales.</p>
+                </div>
+              </div>
+              <div class="dense-item">
+                <div class="dense-icon">🌐</div>
+                <div class="dense-text">
+                  <h4>Comunicación, Infraestructura y Conocimiento</h4>
+                  <p>La red de internet, la computación, el transporte rápido y el alumbrado público nacieron del cálculo de las ciencias exactas para enriquecer la convivencia cotidiana.</p>
+                </div>
+              </div>
+              <div class="dense-item">
+                <div class="dense-icon">📜</div>
+                <div class="dense-text">
+                  <h4>Justicia Jurídica y Derechos Humanos</h4>
+                  <p>La razón estructuró el Estado de derecho, la igualdad constitucional ante la ley, el juicio con pruebas fácticas y la defensa democrática de las libertades civiles.</p>
+                </div>
+              </div>
+              <div class="dense-item highlight-box-accent">
+                <div class="dense-icon">🛡</div>
+                <div class="dense-text">
+                  <h4>Purificación de la Fe (San Juan Pablo II, 1998)</h4>
+                  <p><strong>La razón es el mejor escudo de la fe:</strong> impide que caiga en supersticiones extravagantes, mitologías absurdas, manipulaciones económicas de falsos profetas o fanatismos violentos.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Columna: Lo que la fe da a la razón y a la vida -->
+          <div class="exchange-column col-fe-to-razon">
+            <div class="col-title-bar">
+              <span class="direction-badge">ESPÍRITU → CIENCIA</span>
+              <h3>Aportes Fundamentales de la Fe</h3>
+            </div>
+            <div class="card-stack">
+              <div class="dense-item">
+                <div class="dense-icon">🕊</div>
+                <div class="dense-text">
+                  <h4>Sentido Existencial y Paz Interior</h4>
+                  <p>Otorga esperanza, resiliencia anímica y fuerza en los momentos de duelo familiar, enfermedades graves o crisis personales que el dinero y las computadoras no pueden sanar.</p>
+                </div>
+              </div>
+              <div class="dense-item">
+                <div class="dense-icon">🤝</div>
+                <div class="dense-text">
+                  <h4>Solidaridad y Cuidado del Vulnerable</h4>
+                  <p>Mueve a millones de voluntarios en todo el planeta a visitar enfermos en hospitales, sostener comedores solidarios, perdonar de corazón y acompañar al desvalido.</p>
+                </div>
+              </div>
+              <div class="dense-item">
+                <div class="dense-icon">🧭</div>
+                <div class="dense-text">
+                  <h4>Brújula Ética a la Capacidad Técnica (Papa Francisco, 2015)</h4>
+                  <p>Que la ciencia tenga el poder técnico de fabricar algo no significa que deba hacerlo: la fe recuerda que no todo lo tecnológicamente posible es moralmente bueno (armas químicas, clonación comercial, explotación humana).</p>
+                </div>
+              </div>
+              <div class="dense-item highlight-box-accent-alt">
+                <div class="dense-icon">🌱</div>
+                <div class="dense-text">
+                  <h4>La Dignidad y el Cuidado de la Creación</h4>
+                  <p><em>Laudato si’</em> (2015) subraya que la naturaleza no es un botín mercantil para ser envenenado con fines lucrativos; la creación entera exige una custodia responsable y fraterna.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 05: GALERÍA HISTÓRICA / DOSSIER DE CIENTÍFICOS CREYENTES -->
+    <section id="galeria-historica" class="section-block history-section" data-category="history">
+      <div class="container">
+        <div class="section-label-banner">
+          <span class="section-num">[06 // DOSSIER]</span>
+          <span class="section-category">TESTIMONIOS HISTÓRICOS: CUANDO LA FE Y LA CIENCIA CONVIVIERON EN LA MISMA MENTE</span>
+          <span class="section-code">PÁGINAS 5-6 DEL DOCUMENTO</span>
+        </div>
+
+        <p class="history-intro">
+          La historia real desmiente el mito popular del divorcio irrevocable entre intelecto científico y devoción religiosa. Figuras cumbres de la física, la astronomía y la biología fueron personas de fe profunda que investigaron la naturaleza como una obra digna de admiración.
+        </p>
+
+        <div class="dossier-grid">
+          <!-- Personaje 1: Tomás de Aquino -->
+          <article class="dossier-card">
+            <div class="dossier-card-header">
+              <span class="era-tag">EDAD MEDIA // 1225–1274</span>
+              <span class="role-tag">TEÓLOGO Y FILÓSOFO</span>
+            </div>
+            <h3 class="figure-name">Santo Tomás de Aquino</h3>
+            <div class="figure-hook">La gran síntesis de la armonía intelectual</div>
+            <p class="figure-bio">
+              Pensador dominico universal. Sostuvo que tanto la luz natural de la razón humana como la luz sobrenatural de la fe proceden del mismo Dios creador. Por ende, la verdad no puede contradecir a la verdad: la filosofía y la teología son aliadas que iluminan la mente para contemplar la realidad entera.
+            </p>
+            <div class="figure-badge">Aporte: «La gracia no anula la naturaleza, sino que la perfecciona»</div>
+          </article>
+
+          <!-- Personaje 2: Galileo Galilei -->
+          <article class="dossier-card">
+            <div class="dossier-card-header">
+              <span class="era-tag">RENACIMIENTO // 1564–1642</span>
+              <span class="role-tag">ASTRÓNOMO Y FÍSICO</span>
+            </div>
+            <h3 class="figure-name">Galileo Galilei</h3>
+            <div class="figure-hook">El telescopio que confirmó el heliocentrismo</div>
+            <p class="figure-bio">
+              Demostró con observaciones empíricas que la Tierra orbita al Sol. Aunque sufrió el juicio de eclesiásticos de mente literalista, Galileo murió siendo cristiano católico devoto. Célebremente sentenció que «la Sagrada Escritura nos enseña cómo se va al cielo, no cómo van los cielos», distinción que siglos después la Iglesia reconoció formalmente (Artigas, 2007).
+            </p>
+            <div class="figure-badge">Aporte: Distinción canónica entre salvación y mecánica astronómica</div>
+          </article>
+
+          <!-- Personaje 3: Gregor Mendel -->
+          <article class="dossier-card">
+            <div class="dossier-card-header">
+              <span class="era-tag">SIGLO XIX // 1822–1884</span>
+              <span class="role-tag">MONJE AGUSTINO Y BOTÁNICO</span>
+            </div>
+            <h3 class="figure-name">Gregor Mendel</h3>
+            <div class="figure-hook">El padre indiscutible de la genética moderna</div>
+            <p class="figure-bio">
+              Mientras vivía en su abadía agustina de Brno y cumplía con sus horas de rezo comunitario, cultivó y cruzó pacientemente miles de plantas de guisantes en el huerto del convento. De esa rigurosa labor empírica dedujo las leyes de la herencia que hoy se estudian en todas las clases de biología del mundo.
+            </p>
+            <div class="figure-badge">Aporte: Descubrimiento de las Leyes Fundamentales de la Genética</div>
+          </article>
+
+          <!-- Personaje 4: Georges Lemaître -->
+          <article class="dossier-card highlight-card">
+            <div class="dossier-card-header">
+              <span class="era-tag">SIGLO XX // 1894–1966</span>
+              <span class="role-tag">SACERDOTE, MATEMÁTICO Y FÍSICO</span>
+            </div>
+            <h3 class="figure-name">Georges Lemaître</h3>
+            <div class="figure-hook">El autor intelectual de la Teoría del Big Bang</div>
+            <p class="figure-bio">
+              Sacerdote católico belga que resolvió las ecuaciones de la relatividad general de Einstein antes que nadie, proponiendo la hipótesis del «átomo primigenio» y la expansión del universo (confirmada por Edwin Hubble). Frente a quienes creían que el Big Bang contradecía a Dios, Lemaître demostró con rigor matemático el origen dinámico del cosmos (Artigas, 2007).
+            </p>
+            <div class="figure-badge">Aporte: Fundador de la Cosmología Física Contemporánea</div>
+          </article>
+
+          <!-- Personaje 5: Francis Collins -->
+          <article class="dossier-card highlight-card">
+            <div class="dossier-card-header">
+              <span class="era-tag">SIGLO XXI // ÉPOCA CONTEMPORÁNEA</span>
+              <span class="role-tag">MÉDICO GENETISTA</span>
+            </div>
+            <h3 class="figure-name">Francis Collins</h3>
+            <div class="figure-hook">Líder del Proyecto Genoma Humano y autor creyente</div>
+            <p class="figure-bio">
+              Dirigió el mayor hito biológico de la historia: la secuenciación de los tres mil millones de letras químicas del ADN humano. En su libro <em>¿Cómo habla Dios?</em> (2007), narra cómo pasó del ateísmo juvenil a una sólida fe cristiana al constatar la elegancia portentosa de la vida celular, concluyendo que la investigación científica del genoma fortaleció su admiración por el Creador.
+            </p>
+            <div class="figure-badge">Aporte: Descodificación del Genoma Humano &amp; Diálogo Fe-Ciencia</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 06: DESAFÍO CONTEMPORÁNEO (IA Y MEDICINA) -->
+    <section id="ia-y-medicina" class="section-block contemporary-section" data-category="research">
+      <div class="container">
+        <div class="section-label-banner">
+          <span class="section-num">[07 // CASO REAL]</span>
+          <span class="section-category">DILEMA ACTUAL: INTELIGENCIA ARTIFICIAL Y MEDICINA MODERNA</span>
+          <span class="section-code">PÁGINA 6 DEL DOCUMENTO</span>
+        </div>
+
+        <div class="contemporary-layout">
+          <div class="contemporary-header-block">
+            <span class="badge-scenario">ESCENARIO CRÍTICO DEL SIGLO XXI</span>
+            <h2>¿Por qué hoy más que nunca necesitamos articular la razón técnica con la fe ética?</h2>
+            <p class="lead-context">
+              En los hospitales y centros de investigación actuales conviven supercomputadoras capaces de diagnosticar enfermedades en segundos con pacientes que sufren angustia vital. Ni el algoritmo más sofisticado reemplaza el calor de la mirada humana ni garantiza la justicia en el acceso a la salud.
+            </p>
+          </div>
+
+          <div class="contemporary-columns">
+            <div class="column-reason-tech">
+              <div class="col-indicator">EL ROL IMPRESCINDIBLE DE LA RAZÓN</div>
+              <h3>Programación, Rigor y Verificación</h3>
+              <ul class="check-list">
+                <li>Diseñar redes neuronales artificiales con precisión matemática para detectar tumores tempranos.</li>
+                <li>Verificar mediante ensayos clínicos doble ciego la seguridad de tratamientos genéticos.</li>
+                <li>Automatizar tareas hospitalarias para optimizar el tiempo de los profesionales médicos.</li>
+                <li>Cumplir los estándares mundiales de seguridad de datos y bioinformática (UNESCO, 2021).</li>
+              </ul>
+              <div class="pillar-summary">La razón aporta el método para salvar vidas biológicamente.</div>
+            </div>
+
+            <div class="column-faith-ethics">
+              <div class="col-indicator">EL ROL INDISPENSABLE DE LA FE Y EL ESPÍRITU</div>
+              <h3>Compasión, Dignidad y Límites Morales</h3>
+              <ul class="check-list">
+                <li>Un algoritmo no tiene corazón, no derrama lágrimas ni siente misericordia por un paciente con cáncer terminal.</li>
+                <li>La fe y la moral recuerdan al médico que el enfermo es un hermano con dignidad infinita, jamás un número de factura.</li>
+                <li>Frenar el uso desmedido de la IA para discriminar seguros de salud, predecir la muerte con fines de lucro o crear armas bélicas autónomas.</li>
+                <li>Garantizar que la tecnología esté al servicio de erradicar la pobreza y cuidar el planeta común (Francisco, 2015; UNESCO, 2021).</li>
+              </ul>
+              <div class="pillar-summary">La fe aporta el alma para no deshumanizar la vida.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 07: SECCIÓN OBLIGATORIA «MI PENSAMIENTO» (LAS 7 PREGUNTAS) -->
+    <section id="mi-pensamiento" class="section-block personal-section" data-category="personal">
+      <div class="container">
+        <div class="section-label-banner">
+          <span class="section-num">[08 // REFLEXIÓN DIRECTA]</span>
+          <span class="section-category">SECCIÓN OBLIGATORIA: «MI PENSAMIENTO»</span>
+          <span class="section-code">PÁGINA 7 DEL DOCUMENTO</span>
+        </div>
+
+        <div class="personal-intro">
+          <h2 class="personal-main-title">Las 7 Preguntas de Convicción y Criterio Estudiantil</h2>
+          <p class="personal-lead-text">
+            Esta sección recoge las respuestas auténticas redactadas por los estudiantes del proyecto, confrontando sus ideas preconcebidas con los descubrimientos de la investigación.
+          </p>
+        </div>
+
+        <div class="qa-maximalist-grid">
+          <!-- Pregunta 1 -->
+          <article class="qa-item-card" id="q1">
+            <div class="qa-number-stamp">01</div>
+            <div class="qa-content">
+              <span class="qa-label">PREGUNTA METAREFLEXIVA</span>
+              <h3 class="qa-question">¿Qué fue lo que más me llamó la atención?</h3>
+              <div class="qa-answer-box">
+                <p>
+                  «Lo que más nos llamó la atención al hacer esta investigación fue enterarnos de que el científico que inventó la teoría del Big Bang, <strong>Georges Lemaître</strong>, era un sacerdote católico, y que <strong>Gregor Mendel</strong>, el padre de la genética que vemos en clase de biología, era un monje. Siempre habíamos escuchado el rumor de que el Big Bang iba en contra de creer en Dios, y descubrir que lo propuso un sacerdote nos dejó muy sorprendidos.»
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Pregunta 2 -->
+          <article class="qa-item-card" id="q2">
+            <div class="qa-number-stamp">02</div>
+            <div class="qa-content">
+              <span class="qa-label">RUPTURA DE PARADIGMA</span>
+              <h3 class="qa-question">¿Qué idea tenía antes y tuve que replantearme?</h3>
+              <div class="qa-answer-box">
+                <p>
+                  «Antes de empezar el trabajo teníamos la idea de que <strong>la ciencia y la religión pasaban peleando todo el tiempo</strong>, y que si alguien estudiaba mucha ciencia en la universidad seguro terminaba dejando su fe. Tuvimos que replantearnos esa idea al ver que existen grandes científicos que siguen siendo creyentes porque entienden que la ciencia y la fe responden preguntas diferentes.»
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Pregunta 3 -->
+          <article class="qa-item-card" id="q3">
+            <div class="qa-number-stamp">03</div>
+            <div class="qa-content">
+              <span class="qa-label">DIAGNÓSTICO SOCIAL</span>
+              <h3 class="qa-question">¿Qué relación encuentro entre este tema y la sociedad actual?</h3>
+              <div class="qa-answer-box">
+                <p>
+                  «Se relaciona muchísimo porque hoy vivimos en una sociedad llena de tecnología, celulares e internet (cosas hechas con la razón), pero al mismo tiempo vemos <strong>mucha falta de amor, peleas en redes sociales, depresión y descuido de las personas mayores o pobres</strong>. Eso demuestra que la sociedad actual necesita equilibrar su avance técnico con los valores espirituales.»
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Pregunta 4 -->
+          <article class="qa-item-card" id="q4">
+            <div class="qa-number-stamp">04</div>
+            <div class="qa-content">
+              <span class="qa-label">VALOR DE LA RAZÓN</span>
+              <h3 class="qa-question">¿Qué aporta la razón a este tema?</h3>
+              <div class="qa-answer-box">
+                <p>
+                  «La razón aporta <strong>lógica, pruebas y pensamiento crítico</strong>. Nos ayuda a estudiar cómo funciona la naturaleza de verdad, a mejorar la salud y la tecnología, y también nos sirve para no caer en el fanatismo ni creer en personas que inventan mentiras para manipular a la gente.»
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Pregunta 5 -->
+          <article class="qa-item-card" id="q5">
+            <div class="qa-number-stamp">05</div>
+            <div class="qa-content">
+              <span class="qa-label">VALOR DE LA TRASCENDENCIA</span>
+              <h3 class="qa-question">¿Qué aporte puede realizar la dimensión religiosa, espiritual o trascendente?</h3>
+              <div class="qa-answer-box">
+                <p>
+                  «La dimensión espiritual aporta <strong>sentido de vida, esperanza, consuelo en los momentos duros y amor al prójimo</strong>. Además, le recuerda a la ciencia y a la sociedad que todas las personas tienen una dignidad enorme por el simple hecho de ser personas, evitando que el ser humano sea tratado como un objeto.»
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Pregunta 6 -->
+          <article class="qa-item-card highlight-card" id="q6">
+            <div class="qa-number-stamp">06</div>
+            <div class="qa-content">
+              <span class="qa-label">POSTURA DEFINIDA</span>
+              <h3 class="qa-question">¿Qué posición personal tengo ahora sobre el tema?</h3>
+              <div class="qa-answer-box">
+                <p>
+                  «Nuestra posición personal ahora es que <strong>la fe y la razón son compañeras y no enemigas</strong>. Pensamos que una persona puede usar las dos al mismo tiempo sin problema, porque la razón nos enseña cómo funciona el mundo y la fe nos enseña para qué vivimos y cómo hacer el bien.»
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Pregunta 7 -->
+          <article class="qa-item-card highlight-card" id="q7">
+            <div class="qa-number-stamp">07</div>
+            <div class="qa-content">
+              <span class="qa-label">COMPROMISO ACTIVO</span>
+              <h3 class="qa-question">¿Qué podría hacer yo concretamente para contribuir a una sociedad más humana?</h3>
+              <div class="qa-answer-box">
+                <p>
+                  «Para ayudar a construir una sociedad más humana desde nuestra edad, podemos <strong>respetar las creencias y opiniones de nuestros compañeros sin burlarnos</strong>, usar las redes sociales y la tecnología con responsabilidad <strong>sin hacer ciberbullying</strong>, estudiar con dedicación y ser solidarios ayudando a quienes tienen alguna necesidad en el colegio o en el barrio.»
+                </p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 08: SÍNTESIS CULMINANTE (TÍTULO DE LA PÁGINA) -->
+    <section id="transformacion-final" class="section-block climax-section" data-category="personal">
+      <div class="container">
+        <div class="section-label-banner">
+          <span class="section-num">[09 // SÍNTESIS INTEGRAL]</span>
+          <span class="section-category">EL CORAZÓN DEL PROYECTO</span>
+          <span class="section-code">PÁGINA 8 DEL DOCUMENTO</span>
+        </div>
+
+        <div class="climax-container">
+          <header class="climax-header">
+            <span class="climax-kicker">CONCLUSIÓN GENERAL DEL TRABAJO EXTRACLASE</span>
+            <h2 class="climax-title">«¿Qué aprendí y qué cambió en mi manera de pensar?»</h2>
+            <p class="climax-subtitle">
+              El tránsito de una visión simplista en blanco y negro hacia un pensamiento maduro, empático y comprometido.
+            </p>
+          </header>
+
+          <div class="climax-body-grid">
+            <!-- Bloque 1 de aprendizaje -->
+            <div class="climax-text-panel">
+              <div class="panel-num">01. EL DESCUBRIMIENTO CONCEPTUAL</div>
+              <p>
+                Hacer este trabajo extraclase en pareja nos dejó bastantes aprendizajes que la verdad no conocíamos bien antes de ponernos a leer e investigar. Lo primero que aprendimos fue a entender con palabras más claras <strong>qué significa realmente tener fe y qué significa usar la razón</strong>. Muchas veces uno escucha esas palabras en el colegio o en la casa, pero no se detiene a pensar que usamos las dos casi todos los días.
+              </p>
+              <p>
+                Aprendimos que la ciencia, la filosofía y la religión tienen formas distintas de buscar respuestas y que no hace falta ponerlas a competir como si fueran equipos rivales. Mientras la ciencia nos explica con experimentos cómo funciona el cuerpo humano, las plantas o el espacio, la fe nos ayuda a encontrarle un propósito bonito a nuestra vida y nos enseña a valorar a quienes nos rodean.
+              </p>
+            </div>
+
+            <!-- Bloque 2 de aprendizaje -->
+            <div class="climax-text-panel">
+              <div class="panel-num">02. LA REVELACIÓN DE LA HISTORIA VIVA</div>
+              <p>
+                Otra cosa muy importante que aprendimos fue conocer la historia de personajes reales como <strong>Santo Tomás de Aquino, Galileo Galilei, Gregor Mendel, Georges Lemaître y Francis Collins</strong>.
+              </p>
+              <p>
+                Antes de investigar este tema, la verdad es que nunca nos habían contado que un monje había descubierto las leyes de la genética ni que un sacerdote había propuesto la teoría del Big Bang. Aprender eso nos abrió mucho los ojos, porque nos dimos cuenta de que en la vida real la fe en Dios y el amor por el estudio científico han caminado juntos durante siglos.
+              </p>
+            </div>
+
+            <!-- Bloque 3 de transformación -->
+            <div class="climax-text-panel panel-highlight-full">
+              <div class="panel-num">03. LA TRANSFORMACIÓN INTERIOR Y LA NUEVA MIRADA</div>
+              <p class="climax-quote-lead">
+                En cuanto a qué cambió en nuestra manera de pensar, lo que más cambió fue <strong>quitarnos de la cabeza el prejuicio</strong> de que una persona inteligente o científica no puede ser creyente, o que una persona con fe tiene que rechazar la ciencia.
+              </p>
+              <p>
+                Antes veíamos este tema como algo de blanco o negro, donde había que darle la razón a uno solo, pero ahora pensamos diferente y vemos que las dos cosas se complementan como compañeras. También cambió nuestra forma de ver los avances modernos, como la inteligencia artificial o la tecnología médica: ahora entendemos que no basta con tener celulares más rápidos o máquinas más inteligentes si como sociedad perdemos la empatía, el respeto y la compasión por los demás.
+              </p>
+              <div class="climax-callout">
+                <span class="callout-star">★</span>
+                <p>
+                  «Finalmente, este trabajo nos hizo pensar que para construir un mundo mejor, como dice el lema del proyecto, nos toca poner de nuestra parte siendo jóvenes que piensan con criterio, que respetan a los que creen distinto y que tratan a todas las personas con dignidad.»
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 09: CORPUS DE REFERENCIAS BIBLIOGRÁFICAS (APA 7) -->
+    <section id="referencias" class="section-block references-section" data-category="research">
+      <div class="container">
+        <div class="section-label-banner">
+          <span class="section-num">[10 // FUENTES DOCUMENTALES]</span>
+          <span class="section-category">REFERENCIAS BIBLIOGRÁFICAS (APA 7.ª EDICIÓN)</span>
+          <span class="section-code">PÁGINA 9 DEL DOCUMENTO</span>
+        </div>
+
+        <div class="ref-container">
+          <p class="ref-intro">
+            Bibliografía académica utilizada y citada textualmente en la investigación escrita del proyecto extraclase:
+          </p>
+
+          <ol class="references-list">
+            <li class="ref-entry">
+              <span class="ref-author">Artigas, M.</span> (2007).
+              <em class="ref-title">Ciencia, razón y fe</em> (5.ª ed.).
+              <span class="ref-publisher">Ediciones Palabra.</span>
+              <span class="ref-meta">[Aporte sobre la no contradicción entre ciencia/religión, los límites del cientificismo y el caso histórico de Galileo y Lemaître]</span>
+            </li>
+
+            <li class="ref-entry">
+              <span class="ref-author">Bunge, M.</span> (2000).
+              <em class="ref-title">La ciencia, su método y su filosofía</em>.
+              <span class="ref-publisher">Siglo Veinte.</span>
+              <span class="ref-meta">[Aporte sobre el método científico empírico, la verificación fáctica y la estructuración lógica de la razón]</span>
+            </li>
+
+            <li class="ref-entry">
+              <span class="ref-author">Collins, F. S.</span> (2007).
+              <em class="ref-title">¿Cómo habla Dios?: La evidencia científica de la fe</em>.
+              <span class="ref-publisher">Planeta.</span>
+              <span class="ref-meta">[Aporte testimonial del director del Genoma Humano sobre la coexistencia entre investigación del ADN y creencia en Dios]</span>
+            </li>
+
+            <li class="ref-entry">
+              <span class="ref-author">Francisco.</span> (2015).
+              <em class="ref-title">Carta encíclica Laudato si’: Sobre el cuidado de la casa común</em>.
+              <span class="ref-publisher">Libreria Editrice Vaticana.</span>
+              <span class="ref-meta">[Aporte sobre los límites éticos de la técnica, el cuidado ecológico de la creación y la primacía de la dignidad humana]</span>
+            </li>
+
+            <li class="ref-entry">
+              <span class="ref-author">Juan Pablo II.</span> (1998).
+              <em class="ref-title">Carta encíclica Fides et ratio: Sobre las relaciones entre fe y razón</em>.
+              <span class="ref-publisher">Libreria Editrice Vaticana.</span>
+              <span class="ref-meta">[Aporte de la metáfora de las dos alas del espíritu, la búsqueda unificada de la verdad y el papel de la razón frente al fanatismo]</span>
+            </li>
+
+            <li class="ref-entry">
+              <span class="ref-author">Organización de las Naciones Unidas para la Educación, la Ciencia y la Cultura.</span> (2021).
+              <em class="ref-title">Recomendación sobre la ética de la inteligencia artificial</em>.
+              <span class="ref-publisher">UNESCO.</span>
+              <span class="ref-meta">[Aporte sobre los marcos de regulación ética, justicia algorítmica y protección humana ante la IA en medicina y sociedad]</span>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Pie de página maximalista / Colofón -->
+  <footer class="colophon-footer">
+    <div class="container footer-grid">
+      <div class="footer-col col-info">
+        <span class="footer-stamp">RELIGIÓN</span>
+        <h3 class="footer-title">Creencias que transforman: fe, razón, dignidad y cultura</h3>
+        <p class="footer-text">
+          Proyecto escolar extraclase de investigación y reflexión crítica. Página base estructurada bajo principios de diseño maximalista editorial para ser estilizada y decorada.
+        </p>
+      </div>
+
+      <div class="footer-col col-metadata">
+        <span class="footer-stamp">METADATOS DEL TRABAJO</span>
+        <ul class="meta-bullets">
+          <li><strong>Estudiantes:</strong> [Nombre del Estudiante 1] &amp; [Nombre del Estudiante 2]</li>
+          <li><strong>Institución:</strong> [Nombre del Colegio o Liceo]</li>
+          <li><strong>Docente:</strong> [Nombre del Profesor o Profesora]</li>
+          <li><strong>Sección:</strong> [Sección] | <strong>Fecha:</strong> [Fecha de entrega]</li>
+          <li><strong>Formato:</strong> APA 7.ª Edición</li>
+        </ul>
+      </div>
+
+      <div class="footer-col col-motto">
+        <span class="footer-stamp">LEMA FINAL</span>
+        <blockquote class="footer-quote">
+          «Comprender lo que creemos, respetar lo que otros creen y construir juntos un mundo mejor.»
+        </blockquote>
+        <a href="#pregunta-central" class="back-to-top-btn">▲ Volver al Inicio</a>
+      </div>
+    </div>
+    <div class="footer-bottom-bar">
+      <div class="container bottom-flex">
+        <span>BASE ESTRUCTURAL Y CONTENIDO COMPLETO — CARPETA WEB</span>
+        <span>NO DEPENDENCIAS EXTERNAS // 100% VANILLA HTML5 + CSS3 + JS</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
